@@ -1,0 +1,163 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Alexays/Waybar/master/resources/config/schema.json",
+    "position": "top",
+    "layer": "top",
+    "margin-top": 7,
+    "height": 24,
+    "modules-center": [
+        "clock",
+        "cava",
+        "hyprland/workspaces",
+        "pulseaudio",
+        // "network",
+        "tray",
+        "battery"
+    ], //               
+    // "format-muted": "",
+    // "format-icons": {
+    //     "default": [
+    //         "",
+    //         "",
+    //         "",
+    //         "",
+    //     ],
+    // },
+    "clock": {
+        "interval": 1,
+        "format": "{:%H:%M}",
+        "format-alt": "{:%Y-%m-%d}",
+        "tooltip-format": "{:%A, %B %d, %Y (%R:%S)}",
+    },
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "persistent-workspaces": {
+            "*": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "HDMI-A-1": [
+                1
+            ]
+        },
+        "on-scroll-up": "hyprctl dispatch workspace m-1",
+        "on-scroll-down": "hyprctl dispatch workspace m+1"
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headset": "",
+            "phone": "",
+            "default": [
+                "",
+                "",
+                "",
+                ""
+            ],
+        },
+        "tooltip-format": "{volume}%",
+        "scroll-step": 5,
+        "on-click": "pavucontrol",
+        "max-volume": 200
+    },
+    "network": {
+        "interface": "wlan0",
+        "format": "{ifname}",
+        "format-wifi": "",
+        "format-ethernet": "",
+        "format-disconnected": "",
+        "tooltip-format": "{ifname}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)\nIp: {ipaddr}",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50
+    },
+    "battery": {
+        "interval": 30,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format-icons": {
+            "full": "",
+            "charging": "",
+            "default": [
+                "",
+                "",
+                "",
+                "",
+                ""
+            ]
+        },
+        "events": {
+            "on-discharging-warning": "notify-send -u normal 'Battery' 'Low Battery'",
+            "on-discharging-critical": "notify-send -u critical 'Battery' 'Very Low Battery'",
+            "on-charging-100": "notify-send -u normal 'Battery' 'Battery Full!'",
+            "on-charging": "notify-send -u normal 'Battery' 'Battery Charging'"
+        },
+        "format": "{icon}",
+        "tooltip-format-discharging": "{capacity}% \n{time} left",
+        "tooltip-format-charging": "{capacity}% \n{time} until full",
+        "on-scroll-up": "brightnessctl -e4 -n2 set 5%+",
+        "on-scroll-down": "brightnessctl -e4 -n2 set 5%-"
+    },
+    "bluetooth": {
+        "format": "",
+        "format-on": "",
+        "format-connected": "{icon}",
+        "format-disabled": "",
+        "tooltip-format-connected-battery": "{device_alias} ({device_battery_percentage}%)",
+        "tooltip-format-connected": "{device_alias}",
+        "on-click": "blueman-manager",
+        "format-icons": {
+            "headset": "",
+            "default": [
+                ""
+            ]
+        },
+        "max-length": 50
+    },
+    "tray": {
+        "icon-size": 17,
+        "spacing": 10,
+        "icons": {
+            "blueman": "bluetooth"
+            // "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        },
+        "reverse-order": false
+    },
+    "cava": {
+        //"cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
+        "framerate": 60,
+        "autosens": 0,
+        "sensitivity": 0.01,
+        "bars": 14,
+        "bar_delimiter": 0,
+        "lower_cutoff_freq": 50,
+        "higher_cutoff_freq": 10000,
+        "method": "pulse",
+        "source": "auto",
+        "stereo": true,
+        "reverse": false,
+        "monstercat": false,
+        "waves": false,
+        "noise_reduction": 0.17,
+        "input_delay": 1,
+        "format-icons": [
+            "▁",
+            "▂",
+            "▃",
+            "▄",
+            "▅",
+            "▆",
+            "▇",
+            "█"
+        ],
+        "actions": {
+            "on-click-right": "mode"
+        }
+    }
+}

@@ -1,0 +1,221 @@
+@import 'colors/colors.css';
+
+* {
+    border: none;
+    border-radius: 0px;
+
+    font-family: Arial, Helvetica, 'JetBrainsMono Nerd Font Propo', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+tooltip {
+    background: @bg0;
+    border: 1px solid @bg3;
+    border-radius: 12px;
+}
+
+toolip label {
+    color: @fg;
+    padding: 6px;
+}
+
+.modules-left,
+.modules-right{
+    background: @bg0;
+    padding: 3px;
+    border-radius: 18px;
+    margin-top: 5px;
+}
+
+#workspaces {
+    background-color: @bg0;
+    padding: 3px 3px;
+    margin: 0 0 0 12px;
+    border-radius: 18px;
+    border: 1px solid @red;
+    color: @fg;
+}
+
+#workspaces button {
+    transition: all 1s ease-in-out;
+    padding: 0 1px;
+    margin: 0 3px;
+    border-radius: 50px;
+    color: transparent;
+    background: @bg1;
+    transition: all .3s ease-in-out;
+    font-size: 12px;
+    min-width: 22px;
+    box-shadow: none;
+    text-shadow: none;
+    border: none;
+}
+
+#workspaces button.active {
+    background: linear-gradient(45deg, @blue, @bg4);
+    color: @bg0;
+    min-width: 50px;
+    transition: all .3s ease-in-out;
+}
+
+#workspaces button.active:hover {
+    background: linear-gradient(45deg, @red, @orange);
+    color: @bg0;
+}
+
+#workspaces button:hover {
+    color: @red;
+    border-radius: 16px;
+    min-width: 50px;
+    background-size: 400% 400%;
+}
+
+#workspaces button.urgent {
+    background-color: @yellow;
+    color: @bg0;
+    border-radius: 16px;
+    min-width: 50px;
+    background-size: 400% 400%;
+    transition: all .3s ease-in-out;
+}
+
+#clock,
+#custom-launcher,
+#battery,
+#pulseaudio,
+#custom-notification,
+#network,
+#cpu,
+#memory,
+#window,
+#bluetooth {
+    margin: 0 5px 0 5px;
+    background-color: @bg0;
+    padding: 0 15px 0 15px;
+    border-radius: 50px;
+    border: 1px solid currentColor;
+    transition: all .3s ease-in-out;
+}
+
+#battery {
+    margin: 0 0 0 5px;
+    color: @green;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @fg;
+
+}
+
+#battery.warning {
+    color: @yellow;
+}
+
+#battery.critical {
+    color: @red;
+}
+
+#clock {
+    color: @red;
+}
+
+#custom-notification {
+    color: @fg;
+    margin: 0 12px 0 12px;
+}
+
+#pulseaudio {
+    color: @yellow;
+}
+
+#network {
+    color: @purple;
+}
+
+#cpu,
+#memory {
+    color: @aqua;
+}
+
+#custom-launcher {
+    color: @red;
+}
+
+#window {
+    color: @orange;
+}
+
+#bluetooth {
+    color: @grey2;
+}
+
+#custom-notification:hover {
+    background-color: @fg;
+}
+
+#battery:hover {
+    background-color: @green;
+}
+
+#bluetooth:hover {
+    background-color: @grey2;
+}
+
+#battery.charging:hover,
+#battery.plugged:hover {
+    background-color: @fg;
+}
+
+#battery.warning:hover {
+    background-color: @yellow;
+}
+
+#battery.critical:hover {
+    background-color: @red;
+}
+
+#clock:hover,
+#custom-launcher:hover {
+    background-color: @red;
+}
+
+#pulseaudio:hover {
+    background-color: @yellow;
+}
+
+#network:hover {
+    background-color: @purple;
+}
+
+#cpu:hover,
+#memory:hover {
+    background-color: @aqua;
+}
+
+#window:hover {
+    background-color: @orange;
+}
+
+#clock:hover,
+#custom-launcher:hover,
+#battery:hover,
+#pulseaudio:hover,
+#network:hover,
+#cpu:hover,
+#memory:hover,
+#window:hover,
+#bluetooth:hover,
+#custom-notification:hover {
+    color: @bg0;
+    transition: all 0.2s ease;
+}

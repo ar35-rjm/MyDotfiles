@@ -1,0 +1,216 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Alexays/Waybar/master/resources/config/schema.json",
+    "position": "top",
+    "layer": "top",
+    "margin-top": 7,
+    "height": 24,
+    "modules-left": [
+        "custom/launcher",
+        "clock",
+        "hyprland/workspaces",
+        "hyprland/window",
+    ],
+    "modules-right": [
+        //audio, wifi, stats(cpu, ram, ), notifications, batrery
+        "tray",
+        "pulseaudio",
+        "network",
+        "custom/notification",
+        "group/stats",
+        "group/bat"
+    ],
+    "clock": {
+        "interval": 1,
+        "format": "{:%H:%M}",
+        "format-alt": "{:%A, %B %d, %Y (%R:%S)}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "actions": {
+            "on-click-right": "calendar",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        },
+        "calendar": {
+            "mode": "month",
+            "weeks-pos": "left",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b>{}</b></span>",
+            }
+        }
+    },
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "persistent-workspaces": {
+            "*": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ], // 2-5 on every monitor
+            "HDMI-A-1": [
+                1
+            ] // but only workspace 1 on HDMI-A-1
+        },
+        "on-scroll-up": "hyprctl dispatch workspace m-1",
+        "on-scroll-down": "hyprctl dispatch workspace m+1"
+    },
+    "custom/launcher": {
+        "format": "",
+        "tooltip": true,
+        "tooltip-format": "Launch an application",
+        "on-click": "~/.config/rofi/launchers/type-1/launcher.sh"
+    },
+    "hyprland/window": {
+        "format": "{title}",
+        "icon": true,
+        "rewrite": {
+            "^$": "󰍹",
+            "(.*)@(.*):~": "> $1",
+        },
+        "max-length": 30
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon} ",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "phone-muted": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                ""
+            ]
+        },
+        "scroll-step": 5,
+        "on-click": "pavucontrol",
+        "max-volume": 120
+    },
+    "network": {
+        "interface": "wlan0",
+        "format": "{ifname}",
+        "format-wifi": " {essid} ",
+        "format-ethernet": "{ifname} ",
+        "format-disconnected": "",
+        "tooltip-format": "{ifname}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
+        "tooltip-format-ethernet": "{ifname}  ",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50
+    },
+    "cpu": {
+        "interval": 1,
+        "format": "{usage}% ",
+        "on-click": "kitty --class floating_btop -e btop"
+    },
+    "memory": {
+        "interval": 1,
+        "format": "{percentage}% ",
+        "tooltip-format": " RAM: {used:0.1f}GiB/{total:0.1f}GiB\nSWAP: {swapUsed:0.1f}GiB/{swapTotal:0.1f}GiB",
+        "on-click": "kitty --class floating_btop -e btop"
+    },
+    "custom/notification": {
+        "tooltip": true,
+        "format": "<span size='13pt'>{icon}</span>",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "󰂜",
+            "dnd-notification": "󰂠",
+            "dnd-none": "󰪓",
+            "inhibited-notification": "󰂛",
+            "inhibited-none": "󰪑",
+            "dnd-inhibited-notification": "󰂛",
+            "dnd-inhibited-none": "󰪑"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+    "battery": {
+        "interval": 30,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "events": {
+            "on-discharging-warning": "notify-send -u normal 'Battery' 'Low Battery'",
+            "on-discharging-critical": "notify-send -u critical 'Battery' 'Very Low Battery'",
+            "on-charging-100": "notify-send -u normal 'Battery' 'Battery Full!'",
+            "on-charging": "notify-send -u normal 'Battery' 'Battery Charging'"
+        },
+        "format": "{capacity}%",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time}",
+        "on-scroll-up": "brightnessctl -e4 -n2 set 5%+",
+        "on-scroll-down": "brightnessctl -e4 -n2 set 5%-"
+    },
+    "bluetooth": {
+        "format-on": "on ",
+        "format": "{status} {icon}",
+        "format-connected": " {device_alias}",
+        "tooltip-format-connected-battery": "{device_alias} {device_battery_percentage}%",
+        "tooltip-format-connected": "{device_alias}",
+        "tooltip-format": "Bluetooth",
+        "on-click": "blueman-manager",
+        "format-icons": {
+            "headset": "",
+            "default": [
+                "",
+            ]
+        },
+        "max-length": 50
+    },
+    "group/stats": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 300,
+            "click-to-reveal": false,
+            "transition-direction": ""
+        },
+        "modules": [
+            "cpu",
+            "memory"
+        ],
+        "tooltip": true
+    },
+    "group/bat": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 300,
+            "click-to-reveal": false,
+            "transition-direction": ""
+        },
+        "modules": [
+            "battery",
+            "custom/powermenu"
+        ],
+        "tooltip": true
+    },
+    "custom/powermenu": {
+        "format": "",
+        "tooltip-format": "Power Menu",
+        "on-click": "$HOME/.config/rofi/powermenu/type-1/powermenu.sh"
+    },
+    "tray": {
+        "icon-size": 17,
+        "spacing": 10,
+        "icons": {
+            "blueman": "bluetooth",
+            // "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        },
+        "reverse-order": false,
+    }
+}

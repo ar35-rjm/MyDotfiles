@@ -1,0 +1,99 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Alexays/Waybar/master/resources/config/schema.json",
+    "position": "top",
+    "layer": "top",
+    "width": 1000,
+    "modules-left": [
+        "clock",
+        "hyprland/workspaces",
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "bluetooth",
+        "battery"
+    ],
+    "clock": {
+        "interval": 60,
+        "tooltip": true,
+        "format": "{:%H:%M}",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "persistent-workspaces": {
+            "*": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "HDMI-A-1": [
+                1
+            ]
+        },
+        "on-scroll-up": "hyprctl dispatch workspace m-1",
+        "on-scroll-down": "hyprctl dispatch workspace m+1"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "phone-muted": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                ""
+            ]
+        },
+        "scroll-step": 5,
+        "on-click": "pavucontrol",
+        "max-volume": 120
+    },
+    "network": {
+        "interface": "wlan0",
+        "format": "{ifname}",
+        "format-wifi": " {essid} ",
+        "format-ethernet": "{ifname} ",
+        "format-disconnected": ":(",
+        "tooltip-format": "{ifname}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
+        "tooltip-format-ethernet": "{ifname}  ",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50
+    },
+    "battery": {
+        "interval": 30,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "events": {
+            "on-discharging-warning": "notify-send -u normal 'Battery' 'Low Battery'",
+            "on-discharging-critical": "notify-send -u critical 'Battery' 'Very Low Battery'",
+            "on-charging-100": "notify-send -u normal 'Battery' 'Battery Full!'",
+            "on-charging":"notify-send -u normal 'Battery' 'Battery Charging'"
+        },
+        "format": "{capacity}%",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time}",
+        "on-scroll-up": "brightnessctl -e4 -n2 set 5%+",
+        "on-scroll-down": "brightnessctl -e4 -n2 set 5%-"
+    },
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": " {device_alias}",
+        "tooltip-format-connected-battery": "{device_alias} {device_battery_percentage}%",
+        "tooltip-format-connected": "{device_alias}",
+        "on-click": "blueman-manager",
+        "max-length": 50
+    },
+}

@@ -1,0 +1,139 @@
+@import 'colors/colors.css';
+
+* {
+    border: none;
+    border-radius: 0px;
+
+    font-family: JetBrainsMono Nerd Font Propo;
+    font-size: 13px;
+    font-weight: bold;
+
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+tooltip {
+    background: @bg0;
+    border: 1px solid @bg3;
+    border-radius: 12px;
+}
+
+toolip label {
+    color: @fg;
+    padding: 6px;
+}
+
+.modules-center {
+    background: @bg0;
+    border: none;
+    border-radius: 15px;
+}
+
+#workspaces {
+    background-color: transparent;
+    padding: 3px 3px;
+    margin: 0 0 0 12px;
+    border-radius: 10px;
+    border: none;
+    color: @fg;
+    min-width: 0;
+    transition: all .3s ease-in-out;
+}
+
+#workspaces button {
+    padding: 0 1px 0 1px;
+    margin: 0 3px;
+    border-radius: 50px;
+    color: transparent;
+    background: @bg2;
+    transition: all .3s ease-in-out;
+    font-size: 12px;
+    min-width: 17px;
+    box-shadow: none;
+    text-shadow: none;
+    border: none;
+}
+
+#workspaces button.active {
+    background-color: @blue;
+    transition: all .3s ease-in-out;
+}
+
+#workspaces button:hover {
+    background-color: @green;
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+    border-radius: 16px;
+    background-size: 400% 400%;
+    transition: all .3s ease-in-out;
+}
+
+#clock,
+#custom-launcher,
+#battery,
+#pulseaudio,
+#custom-notification,
+#network,
+#cpu,
+#memory,
+#window,
+#bluetooth,
+#tray,
+#cava {
+    padding: 0 5px 0 5px;
+    margin: 0 6px 0 6px;
+    border-radius: 50px;
+    transition: all .3s ease-in-out;
+    color: @blue;
+}
+
+#clock,
+#battery {
+    margin: 0 6px 0 6px;
+}
+
+#battery.warning {
+    color: @yellow;
+}
+
+#battery.critical {
+    color: @red;
+}
+
+#bluetooth.disabled,
+#network.disconnected {
+    color: @yellow;
+}
+
+#bluetooth.disabled:hover,
+#network.disconnected:hover {
+    color: @orange;
+}
+
+#cava {
+    font-size: .7rem;
+    letter-spacing: 1px;
+}
+
+#clock:hover,
+#custom-launcher:hover,
+#battery:hover,
+#pulseaudio:hover,
+#network:hover,
+#cpu:hover,
+#memory:hover,
+#window:hover,
+#bluetooth:hover,
+#custom-notification:hover,
+#tray:hover {
+    color: @aqua;
+    background-color: @bg3;
+    transition: all 0.2s ease;
+}

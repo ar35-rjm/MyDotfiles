@@ -1,0 +1,183 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Alexays/Waybar/master/resources/config/schema.json",
+    "position": "top",
+    "layer": "top",
+    "justify": "center",
+    "margin-top": 7,
+    "height": 24,
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "cpu",
+        "clock",
+        "memory"
+    ],
+    "modules-right": [
+        "tray",
+        // "network",
+        "pulseaudio",
+        "custom/notification",
+        "battery"
+    ],
+    "cpu": {
+        "interval": 1,
+        "format": " {usage}%",
+        "on-click": "kitty --class floating_btop -e btop",
+        "tooltip-format": "Total: {load}",
+        "states": {
+            "warning": 60,
+            "critical": 85,
+        }
+    },
+    "custom/launcher": {
+        "format": "",
+        "tooltip": true,
+        "tooltip-format": "Launch an application",
+        "on-click": "~/.config/rofi/launchers/type-3/launcher.sh"
+    },
+    "memory": {
+        "interval": 1,
+        "format": "{percentage}% ",
+        "tooltip-format": " RAM: {used:0.1f}GiB/{total:0.1f}GiB\nSWAP: {swapUsed:0.1f}GiB/{swapTotal:0.1f}GiB",
+        "on-click": "kitty --class floating_btop -e btop",
+        "states": {
+            "warning": 60,
+            "critical": 80,
+        }
+    },
+    "custom/notification": {
+        "tooltip": true,
+        "format": "<span size='13pt'>{icon}</span>",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "󰂜",
+            "dnd-notification": "󰂠",
+            "dnd-none": "󰪓",
+            "inhibited-notification": "󰂛",
+            "inhibited-none": "󰪑",
+            "dnd-inhibited-notification": "󰂛",
+            "dnd-inhibited-none": "󰪑"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+    "clock": {
+        "interval": 60,
+        "tooltip": true,
+        "format": "{:%I:%M %p}",
+        "on-click-right": "gnome-clocks",
+        "format-alt": "{:%Y-%m-%d}",
+        "tooltip-format": "{:%A, %B %d, %Y (%R:%S)}"
+    },
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "persistent-workspaces": {
+            "*": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "HDMI-A-1": [
+                1
+            ]
+        },
+        "on-scroll-up": "hyprctl dispatch workspace m-1",
+        "on-scroll-down": "hyprctl dispatch workspace m+1"
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "",
+        "format-icons": {
+            "default": [
+                "",
+                "",
+                "",
+                ""
+            ],
+        },
+        "tooltip-format": "{volume}%",
+        "scroll-step": 5,
+        "on-click": "pavucontrol",
+        "max-volume": 200
+    },
+    "network": {
+        "interface": "wlan0",
+        "format": "{icon}",
+        "format-wifi": ":{bandwidthUpBytes:>1}|:{bandwidthDownBytes:>2}",
+        "format-ethernet": "",
+        "format-disconnected": "󰤭",
+        "on-click": "nm-connection-editor",
+        "interval": 1,
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected",
+        "tooltip-format-alt": "{essid} ({signalStrength}%)",
+        "max-length": 50,
+        "format-icon":{
+            "default":[
+                "󰤨",
+                "󰤥",
+                "󰤢",
+                "󰤟",
+                "󰤯"
+            ]
+        }
+    },
+    "hyprland/window": {
+        "format": "{title}",
+        "icon": true,
+        // "icon-size": 13,
+        "rewrite": {
+            "^$": "󰍹",
+            "(.*)Google Chrome": "$1",
+            "(.*)@(.*):~": "> $1",
+        },
+        "max-length": 30
+    },
+    "battery": {
+        "interval": 30,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+        ],
+        "events": {
+            "on-discharging-warning": "notify-send -u normal 'Battery' 'Low Battery'",
+            "on-discharging-critical": "notify-send -u critical 'Battery' 'Very Low Battery'",
+            "on-charging-100": "notify-send -u normal 'Battery' 'Battery Full!'",
+            "on-charging": "notify-send -u normal 'Battery' 'Battery Charging'",
+	        //"on-discharging":"notify-send -u normal 'Battery' 'Battery Discharging'"
+        },
+        "format": "{icon}",
+        "format-charging": "{icon} ",
+        "format-full": "",
+        "tooltip-format-discharging": "{capacity}% \n{time} left",
+        "tooltip-format-charging": "{capacity}% \n{time} until full",
+        "on-scroll-up": "brightnessctl -e4 -n2 set 5%+",
+        "on-scroll-down": "brightnessctl -e4 -n2 set 5%-"
+    },
+    "tray": {
+        "icon-size": 17,
+        "spacing": 10,
+        "icons": {
+            "blueman": "bluetooth",
+            // "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        },
+        "reverse-order": false,
+    }
+}
