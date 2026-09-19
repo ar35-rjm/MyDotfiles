@@ -17,10 +17,6 @@ window#waybar {
     background: transparent;
 }
 
-#waybar {
-    min-height: 32px;
-}
-
 .modules-left,
 .modules-right,
 .modules-center {
