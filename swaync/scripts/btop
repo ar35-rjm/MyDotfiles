@@ -1,0 +1,11 @@
+#!/bin/bash
+# Swaync semicolons and colons parsing seems to be broken, 
+# that's why there is a separate script for it
+
+if [[ "$MANGO_INSTANCE_SIGNATURE" ]]; then
+    mmsg dispatch spawn, "kitty --class floating_btop -e btop"
+else
+    hyprctl eval "hl.exec_cmd('kitty --class floating_btop -e btop')"
+fi
+
+swaync-client -cp
