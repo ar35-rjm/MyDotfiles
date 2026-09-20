@@ -2,7 +2,7 @@
     //"$schema": "https://raw.githubusercontent.com/Alexays/Waybar/master/resources/config/schema.json",
     "position": "top",
     "layer": "top",
-    "mode":"hide",
+    // "mode":"hide",
     "exclusive":false,
     "passthrough":false,
     "justify": "center",
