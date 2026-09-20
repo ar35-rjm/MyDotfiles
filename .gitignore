@@ -27,3 +27,17 @@ yay/
 mimeapps.list
 pavucontrol.ini
 user-dirs.*
+
+hypr/hyprland/colors/colors.conf
+hypr/hyprland/colors/pallette.txt
+kitty/kitty.conf
+rofi/launchers/type-1/shared/colors.rasi
+rofi/launchers/type-2/shared/colors.rasi
+rofi/launchers/type-3/shared/colors.rasi
+rofi/launchers/type-4/shared/colors.rasi
+rofi/powermenu/type-1/shared/colors.rasi
+rofi/powermenu/type-2/shared/colors.rasi
+rofi/powermenu/type-3/shared/colors.rasi
+rofi/powermenu/type-4/shared/colors.rasi
+themes/colorSchemes/.currentTheme
+waybar/launch.sh
