@@ -18,6 +18,7 @@ pulse/
 pupgui/
 qtvirtualkeyboard/
 rofiRessources/
+spotify/
 systemd/
 unity3d/
 vlc/
@@ -41,3 +42,4 @@ rofi/powermenu/type-3/shared/colors.rasi
 rofi/powermenu/type-4/shared/colors.rasi
 themes/colorSchemes/.currentTheme
 waybar/launch.sh
+waybar/styles/colors/colors.css
