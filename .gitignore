@@ -5,15 +5,19 @@ Code/
 composer/
 dconf/
 discord/
+github-copilot/
 go/
 Google/
 gtk*/
 heroic/
 hydralauncher/
+Insomnia/
+JetBrains/
 mozilla/
 nautilus/
 nwg-look/
 obs-studio/
+prisma-nodejs/
 pulse/
 pupgui/
 qtvirtualkeyboard/
@@ -42,4 +46,4 @@ rofi/powermenu/type-3/shared/colors.rasi
 rofi/powermenu/type-4/shared/colors.rasi
 themes/colorSchemes/.currentTheme
 waybar/launch.sh
-waybar/styles/colors/colors.css
+waybar/styles/colors/color.css
