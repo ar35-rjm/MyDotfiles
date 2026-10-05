@@ -5,7 +5,7 @@
     border-radius: 0px;
 
     font-family: 'JetBrainsMono Nerd Font Propo';
-    font-size: 13px;
+    font-size: 11px;
     font-weight: bold;
 
     min-height: 0;
@@ -29,11 +29,11 @@ window#waybar {
 
 @keyframes coolHover {
     0% {
-        font-size: 13px;
+        font-size: 11px;
     }
 
     100% {
-        font-size: 16px;
+        font-size: 14px;
     }
 }
 
@@ -79,8 +79,8 @@ toolip label {
 #memory,
 #bluetooth,
 #custom-notification {
-    margin: 1px 5px 1px 5px;
-    padding: 0 5px;
+    margin: 1px 3px 1px 3px;
+    padding: 0 3px;
     color: @fg;
     border-radius: 7px;
 }
@@ -103,7 +103,7 @@ toolip label {
 
 #workspaces button {
     transition: all .2s cubic-bezier(0.47, 0, 0.745, 0.715);
-    min-width: 25px;
+    min-width: 20px;
     border-radius: 7px;
     color: @fg;
     margin: 0 3px;
@@ -128,7 +128,7 @@ toolip label {
 
 #workspaces button:hover {
     background: @bg4;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 #workspaces button.urgent:not(.active) {
