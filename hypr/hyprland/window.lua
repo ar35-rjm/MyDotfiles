@@ -120,3 +120,12 @@ hl.window_rule({
     size = {800, 500},
     move = {"(monitor_w - window_x) / 2","(monitor_h - window_y) / 2"}
 })
+
+hl.window_rule({
+    name = "android-studio-float",
+    match = {class = "Welcome to Android Studio"},
+
+    float = true,
+    size = {800, 650},
+    move = {"(monitor_w - window_x) / 2","(monitor_h - window_y) / 2"}
+})
