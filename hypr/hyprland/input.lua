@@ -5,7 +5,7 @@
 hl.config({
     input = {
         kb_layout  = "pt",
-        kb_variant = "",
+        kb_variant = "nodeadkeys",
         kb_model   = "",
         kb_options = "",
         kb_rules   = "",
