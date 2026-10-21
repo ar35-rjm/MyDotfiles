@@ -1,0 +1,6 @@
+## Autostart Apps
+exec awww-daemon
+# exec ~/.config/waybar/launch.sh
+exec swaync
+exec nm-applet 
+exec blueman-applet 

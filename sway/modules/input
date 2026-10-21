@@ -1,0 +1,21 @@
+### Input configuration
+#
+# Example configuration:
+#
+#   input type:touchpad {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+#
+   input type:keyboard {
+       xkb_layout "pt"
+       xkb_variant "nodeadkeys"
+       xkb_options "grp:win_space_toggle"
+   }
+# pt(nodeadkeys)
+# pt
+#
+# You can also configure each device individually.
+# Read `man 5 sway-input` for more information about this section.
