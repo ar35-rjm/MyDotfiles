@@ -5,6 +5,7 @@ Code/
 composer/
 create-next-app-nodejs/
 dconf/
+designcraft/
 discord/
 frida/
 github-copilot/
@@ -24,6 +25,7 @@ nwg-look/
 obs-studio/
 obsidian/
 opencode/
+photocraft/
 prisma-nodejs/
 pulse/
 pupgui/
@@ -33,6 +35,7 @@ spotify/
 sublime-text-3/
 systemd/
 unity3d/
+vectorcraft/
 vlc/
 xsettingsd/
 yay/
