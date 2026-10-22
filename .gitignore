@@ -12,6 +12,7 @@ go/
 Google/
 gtk*/
 heroic/
+herdr/
 hydralauncher/
 Insomnia/
 JetBrains/
@@ -22,7 +23,7 @@ nautilus/
 nwg-look/
 obs-studio/
 obsidian/
-opencode/service.json
+opencode/
 prisma-nodejs/
 pulse/
 pupgui/
