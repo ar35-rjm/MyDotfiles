@@ -14,8 +14,8 @@ local walset              = " ~/.config/themes/awww/wallpaperSelector.sh "
 local colorset            = " ~/.config/themes/colorSchemes/.colorSelector.sh "
 local mainBrowser         = " firefox "
 local secondaryBrowser    = " flatpak run app.zen_browser.zen "
-local fullscreenPrint     = " ~/.config/hypr/fullscreenPrint.sh "
-local shapedPrint         = " ~/.config/hypr/shapedPrint.sh "
+local fullscreenPrint     = " ~/.config/usefullScripts/fullscreenPrint.sh "
+local shapedPrint         = " ~/.config/usefullScripts/shapedPrint.sh "
 
 
 ---- MY MOD KEYS ----
