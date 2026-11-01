@@ -3,6 +3,7 @@ btop/
 cava/
 Code/
 composer/
+configstore/
 create-next-app-nodejs/
 dconf/
 designcraft/
@@ -22,6 +23,7 @@ jgit/
 k6/
 mozilla/
 nautilus/
+nextjs-nodejs/
 nwg-look/
 obs-studio/
 obsidian/
@@ -31,6 +33,7 @@ prisma-nodejs/
 pulse/
 pupgui/
 qtvirtualkeyboard/
+ristretto/
 rofiRessources/
 spotify/
 sublime-text-3/
