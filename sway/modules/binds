@@ -15,6 +15,8 @@ set $term kitty
 set $menu ~/.config/rofi/launchers/type-1/launcher.sh
 # Your preferred browser
 set $browser firefox
+# Your preferred file manager
+set $files nautilus
 
 
 ### Key bindings
@@ -32,6 +34,9 @@ set $browser firefox
 
     # Start your browser
     bindsym Mod1+Shift+b exec firefox
+
+    # Start your file manager
+    bindsym $mod+Shift+e exec $files
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
