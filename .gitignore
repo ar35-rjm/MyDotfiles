@@ -9,6 +9,8 @@ dconf/
 designcraft/
 discord/
 frida/
+gh/
+ghidra/
 github-copilot/
 go/
 Google/
@@ -27,7 +29,9 @@ nextjs-nodejs/
 nwg-look/
 obs-studio/
 obsidian/
+onlyoffice/
 opencode/
+pdfcraft/
 photocraft/
 prisma-nodejs/
 pulse/
