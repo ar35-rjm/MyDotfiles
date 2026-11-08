@@ -2,10 +2,11 @@
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+         timeout 1000 'pidof hyprlock || hyprlock' \
+         before-sleep 'loginctl lock-session' \
+         timeout 6000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         timeout 480 '~/.config/usefullScripts/brigthnesDown.sh' resume '~/.config/usefullScripts/brigthnesUp.sh' \
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
