@@ -52,6 +52,7 @@ zed/
 mimeapps.list
 pavucontrol.ini
 user-dirs.*
+QtProject.conf
 
 hypr/hyprland/colors/colors.conf
 hypr/hyprland/colors/pallette.txt
