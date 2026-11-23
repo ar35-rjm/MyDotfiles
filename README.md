@@ -1,1 +1,1 @@
-# Hi, here you will find my dotfiles for my arch linux + hyprland rice
+# Hi, here you will find my dotfiles for my arch linux + hyprland and sway rice
